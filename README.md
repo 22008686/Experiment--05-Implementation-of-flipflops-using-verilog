@@ -155,25 +155,25 @@ endmodule
 
 D FLIPFLOP:
 
-module DF (D,Clock,Q,Qbar);
-input D,Clock;
+module DF (D,Clk,Q,Qbar);
+input D,Clk;
 output Q,Qbar;
 assign Dbar = ~D;
 wire X,Y;
 nand (X,D,Clock);
-nand (Y,Dbar,Clock);
+nand (Y,Dbar,Clk);
 nand (Q,X,Qbar);
 nand (Qbar,Y,Q);
 endmodule
 
  T FLIPFLOP:
 
-module TF (T,Clock,Q,Qbar);
-input T,Clock;
+module TF (T,Clk,Q,Qbar);
+input T,Clk;
 output Q,Qbar;
 wire A,B;
-nand (A,T,Clock,Qbar);
-nand (B,T,Clock,Q);
+nand (A,T,Clk,Qbar);
+nand (B,T,Clk,Q);
 nand (Q,A,Qbar);
 nand (Qbar,B,Q);
 endmodule
